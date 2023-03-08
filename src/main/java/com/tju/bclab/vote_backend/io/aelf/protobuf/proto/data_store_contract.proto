@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "core.proto";
+import "client.proto";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+service DataStoreContract {
+
+  rpc Initialize (InitializeInput) returns (google.protobuf.Empty) { }
+  rpc AddUser (Address) returns (google.protobuf.Empty) { }
+  rpc InitiationHashStore (HashStoreInput) returns (google.protobuf.Empty) { }
+  rpc VoteHashStore (HashStoreInput) returns (google.protobuf.Empty) { }
+  rpc ResultHashStore (HashStoreInput) returns (google.protobuf.Empty) { }
+}
+
+message InitializeInput {
+  string flag = 1;
+}
+
+message HashStoreInput {
+  string value = 1;
+}
